@@ -132,7 +132,7 @@ public class MainTest {
         }
 
         @Override
-        void validate(SampleClass object) {
+        public void validate(SampleClass object) {
             addTo("name").when(object.name).isNull().isEmpty().length(i -> i.isLower(8));
             addTo("strikeCount").when(object.strikeCount).isNull().isGreater(6);
         }

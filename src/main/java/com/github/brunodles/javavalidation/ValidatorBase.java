@@ -37,7 +37,7 @@ public abstract class ValidatorBase<T> implements Validator<T> {
         this.mObjectToValidate = objectToValidate;
     }
 
-    abstract void validate(T object);
+    public abstract void validate(T object);
 
     /**
      * With this method you can get the errors from one key
