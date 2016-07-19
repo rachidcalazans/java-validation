@@ -125,7 +125,7 @@ public class MainTest {
 
     private static class SampleValidator extends ValidatorBase<SampleClass> {
         @Override
-        void validate(SampleClass object, ValidationResultBuilder builder) {
+        public void validate(SampleClass object, ValidationResultBuilder builder) {
             builder.addTo("name").when(object.name).isNull().isEmpty().length(i -> i.isLower(8));
             builder.addTo("strikeCount").when(object.strikeCount).isNull().isGreater(6);
         }
