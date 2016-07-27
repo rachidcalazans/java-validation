@@ -19,10 +19,6 @@ public abstract class ValidatorBase<T> implements Validator<T> {
     private HashMap<String, Integer> errorMap;
     private T mObjectToValidate;
 
-    public ValidatorBase() {
-        errorMap = new HashMap<>();
-    }
-
     public ValidatorBase(T objectToValidate) {
         errorMap = new HashMap<>();
         this.mObjectToValidate = objectToValidate;
@@ -33,11 +29,7 @@ public abstract class ValidatorBase<T> implements Validator<T> {
         return this;
     }
 
-    public void setObjectToValidate(T objectToValidate) {
-        this.mObjectToValidate = objectToValidate;
-    }
-
-    public abstract void validate(T object);
+    protected abstract void validate(T object);
 
     /**
      * With this method you can get the errors from one key

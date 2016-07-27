@@ -18,13 +18,10 @@ public class MainTest {
     {
         describe("Given a Validator", () -> {
             before(() -> {
-                validator = new SampleValidator();
+                validator = new SampleValidator(null);
             });
 
             describe("when pass a null value", () -> {
-                before(() ->{
-                    validator.setObjectToValidate(null);
-                });
                 it("should throw NullPointerException", () -> {
                     expect(() -> validator.validate()).toThrow(NullPointerException.class);
                 });
@@ -125,14 +122,12 @@ public class MainTest {
     }
 
     private static class SampleValidator extends ValidatorBase<SampleClass> {
-        public SampleValidator() { super(); }
-
         public SampleValidator(SampleClass objectToValidate) {
             super(objectToValidate);
         }
 
         @Override
-        public void validate(SampleClass object) {
+        protected void validate(SampleClass object) {
             addTo("name").when(object.name).isNull().isEmpty().length(i -> i.isLower(8));
             addTo("strikeCount").when(object.strikeCount).isNull().isGreater(6);
         }

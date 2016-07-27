@@ -16,13 +16,6 @@ public interface Validator<T> {
     Validator validate();
 
     /**
-     * Set the Object to validate.
-     *
-     * @param objectToValidate  object to be validated
-     */
-    void setObjectToValidate(T objectToValidate);
-
-    /**
      * This is the return of the whole tests.
      *
      * @return true if didn't found any error
